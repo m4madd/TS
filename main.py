@@ -17,18 +17,13 @@ TorrentBot = Client(session_name=Config.SESSION_NAME, api_id=Config.API_ID, api_
 @TorrentBot.on_message(filters.command("start"))
 async def start_handler(_, message: Message):
     await message.reply_text(
-        text="🤖 𝐇𝐞𝐥𝐥𝐨, 𝐈 𝐚𝐦 𝐓𝐨𝐫𝐫𝐞𝐧𝐭 𝐒𝐞𝐚𝐫𝐜𝐡 𝐁𝐨𝐭!!\n🔍 𝐈 𝐜𝐚𝐧 𝐬𝐞𝐚𝐫𝐜𝐡 𝐓𝐨𝐫𝐫𝐞𝐧𝐭 𝐌𝐚𝐠𝐧𝐞𝐭𝐢𝐜 𝐋𝐢𝐧𝐤 𝐟𝐫𝐨𝐦 𝐈𝐧𝐥𝐢𝐧𝐞.\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
+        text="🤖 𝐇𝐞𝐥𝐥𝐨, 𝐈 𝐀𝐦 𝐚 𝐒𝐞𝐚𝐫𝐜𝐡 𝐁𝐨𝐭 𝐅𝐫𝐨𝐦 𝐓𝐨𝐫𝐫𝐞𝐧𝐭 𝐓𝐡𝐞𝐏𝐢𝐫𝐚𝐭𝐞𝐁𝐚𝐲.\n🔍 𝐈 𝐂𝐚𝐧 𝐒𝐞𝐚𝐫𝐜𝐡 𝐓𝐨𝐫𝐫𝐞𝐧𝐭 𝐌𝐚𝐠𝐧𝐞𝐭𝐢𝐜 𝐋𝐢𝐧𝐤 𝐟𝐫𝐨𝐦 𝐈𝐧𝐥𝐢𝐧𝐞.\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
         disable_web_page_preview=True,
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🔍 𝐒𝐞𝐚𝐫𝐜𝐡 𝐓𝐨𝐫𝐫𝐞𝐧𝐭𝐬", switch_inline_query_current_chat="!s "),
-                 InlineKeyboardButton("💢 𝗚𝗼 𝗜𝗻𝗹𝗶𝗻𝗲", switch_inline_query="!s ")],
-                [InlineKeyboardButton("🔍 𝐒𝐞𝐚𝐫𝐜𝐡 𝐓𝐡𝐞𝐏𝐢𝐫𝐚𝐭𝐞𝐁𝐚𝐲", switch_inline_query_current_chat="!pts "),
+                [InlineKeyboardButton("🔍 𝐒𝐞𝐚𝐫𝐜𝐡", switch_inline_query_current_chat="!pts "),
                  InlineKeyboardButton("💢 𝗚𝗼 𝗜𝗻𝗹𝗶𝗻𝗲", switch_inline_query="!pts ")],
-                [InlineKeyboardButton("🔍 𝗦𝗲𝗮𝗿𝗰𝗵 𝟭𝟯𝟯𝟳𝘅", switch_inline_query_current_chat=""),
-                 InlineKeyboardButton("💢 𝗚𝗼 𝗜𝗻𝗹𝗶𝗻𝗲", switch_inline_query="")],
-                [InlineKeyboardButton("🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆", url="https://t.me/M4madReza")]
             ]
         )
     )
@@ -62,7 +57,7 @@ async def inline_handlers(_, inline: InlineQuery):
                         message_text="`!pts [text]`\n\nSearch Pirate Bay Torrents from Inline!",
                         parse_mode="Markdown"
                     ),
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍Search Again", switch_inline_query_current_chat="!pts ")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Search Again", switch_inline_query_current_chat="!pts ")]])
                 )
             )
         else:
@@ -75,10 +70,10 @@ async def inline_handlers(_, inline: InlineQuery):
                         title=f"{name_tor}",
                         description=f"Seeders: {torrent.seeds}, Leechers: {torrent.leeches}\nSize: {torrent.filesize}",
                         input_message_content=InputTextMessageContent(
-                            message_text=f"\n\n**🗂Name:** {torrent.title}\n**🗳Size:** {torrent.filesize}\n**👤Seeders:** {torrent.seeds}\n**👥Leechers:** {torrent.leeches}\n\n`{torrent.magnetlink}`\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
+                            message_text=f"\n\n**🗂 Name:** {torrent.title}\n**🗳 Size:** {torrent.filesize}\n**👤 Seeders:** {torrent.seeds}\n**👥 Leechers:** {torrent.leeches}\n\n`{torrent.magnetlink}`\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
                             parse_mode="Markdown"
                         ),
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍Search Again", switch_inline_query_current_chat="!pts ")]])
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔍 Search Again", switch_inline_query_current_chat="!pts ")]])
                     )
                 )
                 if name_tor == "":
@@ -109,7 +104,7 @@ async def inline_handlers(_, inline: InlineQuery):
                                         title=f"{name_tor}",
                                         description=f"Seeders: {torrent[i]['seeder']}, Leechers: {torrent[i]['leecher']}\nSize: {torrent[i]['size']}",
                                         input_message_content=InputTextMessageContent(
-                                            message_text=f"\n\n**🗂Name:** `{torrent[i]['name']}`\n**🗳Size:** `{torrent[i]['size']}`\n**👤Seeders:** `{torrent[i]['seeder']}`\n**👥Leechers:** `{torrent[i]['leecher']}`\n\n`{torrent[i]['magnet']}`\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
+                                            message_text=f"\n\n**🗂 Name:** `{torrent[i]['name']}`\n**🗳 Size:** `{torrent[i]['size']}`\n**👤 Seeders:** `{torrent[i]['seeder']}`\n**👥 Leechers:** `{torrent[i]['leecher']}`\n\n`{torrent[i]['magnet']}`\n\n🛡 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 : @M4madReza",
                                             parse_mode="Markdown"
                                         ),
                                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Search Again", switch_inline_query_current_chat="!s ")]])
